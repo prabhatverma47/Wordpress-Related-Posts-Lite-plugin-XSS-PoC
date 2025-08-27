@@ -7,6 +7,33 @@ The issue exists because the plugin saves unsanitized option values from its set
 
 ---
 
+## Affected Component
+
+- **Path (example):** `backend/settings.php`
+- **Sink:** `update_option('rpl_options', $_POST);` (stores raw POST)
+- **Render:** Values (e.g., “Plugin title”) are later output by the `[wpdreams_rpl]` shortcode / auto-append without `esc_html()` / `esc_attr()`.
+
+---
+
+## Impact
+
+- **Type:** Stored XSS  
+- **Scope:** Executes for visitors viewing posts where Related Posts are displayed  
+- **Result:** Run arbitrary JavaScript in the context of the site (session theft, defacement, admin action via authenticated victim, etc.)
+
+---
+
+## Environment (example used for verification)
+
+- WordPress: 6.8.2
+- PHP: 8.x
+- Plugin: Related Posts Lite v1.12
+- Permalinks: default
+
+
+---
+
+
 ## Vulnerability Information
 
 The issue is caused by the plugin saving settings in `backend/settings.php` using:
