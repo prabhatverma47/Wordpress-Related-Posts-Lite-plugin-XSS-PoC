@@ -40,6 +40,8 @@ JavaScript Execution (Stored XSS)
    (this will add the "Related Posts Lite" menu item in the wp-admin panel).
 
 
+<img width="1458" height="621" alt="1" src="https://github.com/user-attachments/assets/4e65ff14-71a8-496d-a871-f2fec9211c2a" />
+
 
 
 
@@ -47,6 +49,7 @@ JavaScript Execution (Stored XSS)
 
    `<svg onload=alert(1)>`  
 
+<img width="1127" height="710" alt="2" src="https://github.com/user-attachments/assets/af5bb1d4-bc19-4b9b-96fe-0ddcec14d9d4" />
 
 
 
@@ -55,10 +58,12 @@ JavaScript Execution (Stored XSS)
 
 3. Create a new post via **Posts → Add New**, then publish it (the related posts section is automatically appended or can be displayed using the `[wpdreams_rpl]` shortcode).  
 
+<img width="1461" height="618" alt="3" src="https://github.com/user-attachments/assets/32ccc63a-b81a-49a3-91af-f34c818825f9" />
 
 
 4. Visit the published post in the frontend (example: `http://127.0.0.1:8080/?p=13`) and the malicious payload is retrieved from the database and echoed unescaped, causing the JavaScript to execute and proving the stored XSS vulnerability.  
 
+<img width="1209" height="441" alt="4" src="https://github.com/user-attachments/assets/d74856f9-493d-4dbe-8af1-53b04758cd1a" />
 
 
 ---
